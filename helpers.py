@@ -35,3 +35,10 @@ def print_result_line(c):
                 c.details.appDetails.numDownloads]
     print SEPARATOR.join(unicode(i).encode('utf8') for i in l)
 
+
+def get_parsed_result(c):
+    #c.offer[0].micros/1000000.0
+    #c.offer[0].currencyCode
+    l = [ c.docid, c.details.appDetails.versionCode, sizeof_fmt(c.details.appDetails.installationSize),
+          "%.2f" % c.aggregateRating.starRating, c.details.appDetails.numDownloads]
+    return l
